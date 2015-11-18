@@ -1,7 +1,5 @@
 //load express external module
 var express = require('express');
-//load EasyRTC external module
-var easyrtc = require("easyrtc");
 //creat web server
 var app = express();
 
@@ -11,6 +9,8 @@ var port = process.env.PORT || 3000;
 var param_room = null;
 //set the static folder full path
 var staticPath = __dirname+'/static';
+//set the static folder full path
+var htmlPath = __dirname+'/views';
 
 //defin the static/public folder
 app.use(express.static(staticPath));
@@ -18,20 +18,14 @@ app.use(express.static(staticPath));
 //waite for GET requist on the / rout
 app.get('/', function(req, res){
 	console.log('Someone came to / rout.');
-	res.send('Hello world :)');
-});
-
-//waite for GET requist on the /aboutus rout
-app.get('/aboutus', function(req, res){
-	console.log('Someone came to /aboutus rout.');
-	res.sendFile(staticPath+'/aboutus.html');
+	res.sendFile(htmlPath + '/index.html');
 });
 
 //waite for requist on room name then render the page as the responce
 app.get("/r/:room", function(req, res){
     param_room = req.params.room;
 	console.log('Someone came to /r/' + param_room + ' rout.');
-    res.sendFile(staticPath + '/room.html');
+    res.sendFile(htmlPath + '/room.html');
 });
 
 //start the web server on the difiend port

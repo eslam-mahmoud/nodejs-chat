@@ -1,0 +1,74 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Truly simple video chat Create room, share link to unlimited friend</title>
+        <link href="/css/bootstrap.css" rel='stylesheet' type='text/css' />
+        <!-- Custom Theme files -->
+        <link href="/css/style.css" rel='stylesheet' type='text/css' />
+    
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script type="text/javascript" src="/js/lib/jquery-min.js"></script>
+        <script type="text/javascript" src="/js/lib/simplewebrtc.js"></script> 
+        <script type="text/javascript" src="/js/room.js"></script>
+        <link rel="icon" type="image/png" href="/images/logo.png">
+    
+        <!-- start-smoth-scrolling-->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+        </script>
+        <!--webfonts-->
+        <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
+        <!---//webfonts-->
+    </head>
+    <body>
+            <div id="userName" class="container">
+                <h2>Ready to join the chat?</h2>
+                <span class="underline"></span>
+                <h3>
+                    It is truly simple video chat service for groups, Select your Name to get started.
+                </h3>
+                <form id="usernameForm">
+                    <input class="border input" id="name" placeholder="Your name">
+                    <button class="submit" type="submit">Start</button>
+                </form>
+            </div>
+            <!-- chat -->
+            <div  id="chat" style="display:none;" class="container">
+                <div>
+                    <div class="col-md-12">
+                        <h2>To invite your friends share this link with them <span id="roomLink"></span></h2>
+                    </div>
+                    <div class="col-md-12">
+                        <span class="fullUnderline"> </span>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="col-md-3">
+                    <div id="messages">
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="controls">
+                        <form id="chatForm">
+                            <input class="border input" id="message" placeholder="Message">
+                            <button type="submit" class="submit">Send</button>
+                        </form>
+                        <div id="typing"></div>
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <div id="allVideos">
+                        <video id="localVideo"></video>
+                    </div>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+            <!-- END chat -->
+            <!-- QUOTE -->
+            <div class="quote text-center">
+                <div class="container">
+                    <p>I like to stay in touch with you, for feedback or problems please contact me at <a href="mailto:chat@eslam.me">chat@eslam.me</a></p>
+                </div>
+            </div>
+            <!-- //QUOTE -->
+    </body>
+</html>
