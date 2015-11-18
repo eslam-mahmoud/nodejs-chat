@@ -17,13 +17,9 @@ $(document).ready(function() {
         $('#userName').hide();
         $('#chat').show();
         //Start the WebRTC to get video chat
-        init();
-        //Regester the socket events and send username
-        // if(!eventsAdded) {
-        //     eventsAdded = true;
-            events();
-            sendUsername();
-        // }
+        initWebRTC();
+        socketIOEvents();
+        sendUsername();
     });
 });
 
@@ -43,7 +39,7 @@ function sendUsername() {
     $('#name').val('');
 }
 
-function events(){
+function socketIOEvents(){
     //Listem when the server send a message to the user
     socket.on('message', function (data) {
         // console.log('Got message', data)
@@ -107,24 +103,24 @@ function updateScroll(){
     element.scrollTop = element.scrollHeight;
 }
 
-function init () {
-	var webrtc = new SimpleWebRTC({
-	    // the id/element dom element that will hold "our" video 
-	    localVideoEl: 'localVideo',
-	    // the id/element dom element that will hold remote videos 
-	    remoteVideosEl: 'allVideos',
-	    // immediately ask for camera access 
-	    autoRequestMedia: true
-	});
+function initWebRTC() {
+    var webrtc = new SimpleWebRTC({
+        // the id/element dom element that will hold "our" video 
+        localVideoEl: 'localVideo',
+        // the id/element dom element that will hold remote videos 
+        remoteVideosEl: 'allVideos',
+        // immediately ask for camera access 
+        autoRequestMedia: true
+    });
 
-	// console.log(webrtc);
+    // console.log(webrtc);
 
-	// we have to wait until it's ready
-	webrtc.on('readyToCall', function () {
-	    // get the room name form the URL pathname 
-	    var room_name = window.location.pathname.replace('/r/', '');
-	    webrtc.joinRoom(room_name, function(){
-	    	console.log('joined room ' + room_name);
-	    });
-	});
+    // we have to wait until it's ready
+    webrtc.on('readyToCall', function () {
+        // get the room name form the URL pathname 
+        var room_name = window.location.pathname.replace('/r/', '');
+        webrtc.joinRoom(room_name, function(){
+            console.log('joined room ' + room_name);
+        });
+    });
 }
