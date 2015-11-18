@@ -1,9 +1,19 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Room</title>
-</head>
-<body>
-	<h1>Welcome in the room</h1>
-</body>
+    <head>
+        <script src="/js/lib/simplewebrtc.js"></script> 
+        <script src="/js/room.js"></script> 
+        <style>
+            #remoteVideos video {
+                height: 150px;
+            }
+            #localVideo {
+                height: 150px;
+            }
+        </style> 
+    </head>
+    <body onload="init()">
+        <video id="localVideo"></video>
+        <div id="remoteVideos"></div>
+    </body>
 </html>

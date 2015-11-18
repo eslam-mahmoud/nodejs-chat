@@ -4,12 +4,6 @@ var express = require('express');
 var easyrtc = require("easyrtc");
 //creat web server
 var app = express();
-// //Create HTTP server 
-// var http = require('http').Server(app);
-// //Start the real time part in the app
-// var io = require('socket.io')(http);
-// // Start EasyRTC server
-// var rtc = easyrtc.listen(app, io);
 
 //set the app port
 var port = process.env.PORT || 3000;
@@ -45,6 +39,10 @@ app.listen(port, function(){
 	console.log('web server start on port ' + port);
 });
 
+// //Create HTTP server 
+// var http = require('http').Server(app);
+// //Start the real time part in the app
+// var io = require('socket.io')(http);
 // //listen when new connection happen on socket
 // io.sockets.on('connection', function (socket) {
 // 	console.log('New socket connection id ' + socket.id);
